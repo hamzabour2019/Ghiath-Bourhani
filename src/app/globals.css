@@ -1128,6 +1128,11 @@ footer .social-links a:hover {
     .service-icon {
         font-size: 1.5rem;
     }
+
+    body,
+    .hero {
+        background-attachment: scroll;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1183,6 +1188,14 @@ footer .social-links a:hover {
     footer .social-links a {
         font-size: 1.25rem;
         margin: 0 0.75rem;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .logo {
+        font-size: 1rem;
     }
 }
 

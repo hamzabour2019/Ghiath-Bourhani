@@ -46,25 +46,8 @@ export default function Home() {
       revealObserver.observe(el);
     });
 
-    // Navbar Hide on Scroll
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (header) {
-        if (scrollTop > lastScrollTop) {
-          header.style.transform = 'translateY(-100%)';
-        } else {
-          header.style.transform = 'translateY(0)';
-        }
-      }
-      lastScrollTop = scrollTop;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      // Cleanup if needed
     };
   }, []);
 

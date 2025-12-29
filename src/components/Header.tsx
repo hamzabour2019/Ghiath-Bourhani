@@ -21,9 +21,29 @@ export default function Header() {
       setActiveSection(current);
     };
 
+    // Navbar Hide on Scroll, but not when menu is open
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    const handleScrollHide = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (header && !isMenuOpen) {
+        if (scrollTop > lastScrollTop) {
+          header.style.transform = 'translateY(-100%)';
+        } else {
+          header.style.transform = 'translateY(0)';
+        }
+      }
+      lastScrollTop = scrollTop;
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScrollHide);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollHide);
+    };
+  }, [isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
