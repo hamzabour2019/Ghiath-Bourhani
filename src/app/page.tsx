@@ -18,7 +18,7 @@ export default function Home() {
     // Scroll Reveal Animations
     const revealOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -29,9 +29,8 @@ export default function Home() {
       });
     }, revealOptions);
 
-    document.querySelectorAll('.card, .project-card, .item, .testimonial, .contact-card').forEach((el, index) => {
+    document.querySelectorAll('.card, .project-card, .item, .testimonial, .contact-card').forEach((el) => {
       el.classList.add('fade-in-up');
-      (el as HTMLElement).style.transitionDelay = `${index * 0.05}s`;
       revealObserver.observe(el);
     });
 
