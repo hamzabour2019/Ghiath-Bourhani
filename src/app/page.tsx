@@ -31,7 +31,7 @@ export default function Home() {
 
     document.querySelectorAll('.card, .project-card, .item, .testimonial, .contact-card').forEach((el, index) => {
       el.classList.add('fade-in-up');
-      (el as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+      (el as HTMLElement).style.transitionDelay = `${index * 0.05}s`;
       revealObserver.observe(el);
     });
 
